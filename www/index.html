@@ -1,52 +1,11 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html class="ui-mobile-rendering">
     <head>
-        <title>ACTORAMA</title>
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />                
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />        
-        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <title>Actorama</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script>
-            $(document).on( 'mobileinit', function(){
-              //$.mobile.loader.prototype.options.text = "loading";
-              //$.mobile.loader.prototype.options.textVisible = false;
-              /* TODO not working 
-              $.mobile.loader.prototype.options.theme = "e";  */            
-              //$.mobile.loader.prototype.options.html = "";
-              console.log("before jquery mobile initialize");             
-              //$.mobile.allowCrossDomainPages = true;
-            });
+            window.location='main.html';
         </script>
-        <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-    </head>
-    <body>
-        <div data-role="page" id="loginPage">
-            <div data-role="header">
-                <h1>Actorama</h1>
-            </div><!-- /header -->
-            <div data-role="content">   
-                <form data-ajax="false" id="loginFrm" name="loginFrm">                    
-                    <div data-role="fieldcontain" class="ui-hide-label">
-                        <label for="emailField">Email</label>
-                        <input type="email" name="emailField" id="emailField" value="" placeholder="E-mail" required/>
-                    </div>
-                    <div data-role="fieldcontain" class="ui-hide-label">
-                        <label for="passwordField">Password</label>
-                        <input type="password" name="passwordField" id="passwordField" value="" placeholder="Password" required/>
-                    </div>
-                    <div class="ui-grid-a">
-                        <div class="ui-block-a">                                   
-                           <input type="checkbox" name="checkbox-remember" id="checkbox-remember" class="custom" />
-                           <label for="checkbox-remember" data-inline="true">Remember me</label>
-                        </div>
-                        <div class="ui-block-b" style="text-align:right;">                            
-                            <button id="submitBtn" data-inline="true">Submit</button>
-                            <!--a data-role="button" id="submitBtn" data-inline="true">Submit</a-->
-                        </div>
-                    </div>
-                </form>
-            </div><!-- /content -->
-        </div>        
-        <!--script src="phonegap.js"></script-->
-        <script src="js/index.js"></script>        
+    <body>      
     </body>
 </html>

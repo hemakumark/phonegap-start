@@ -19,6 +19,7 @@
     <preference name="orientation"      value="default" />
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
+    <preference name="load-url-timeout" value="60000" />
 
     <icon src="icon.png" />
     <icon src="res/icon/android/icon-actorama-36.png"   gap:platform="android"    gap:density="ldpi" />
