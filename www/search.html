@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>ACTORAMA</title>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />                
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />        
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>        
+    </head>
+    <body>
+        <div data-role="page" id="searchPage">
+            <div data-role="header">
+                <h1>Actorama</h1>
+            </div><!-- /header -->
+            <div data-role="content"> 
+                <div class="ui-controlgroup-horizontal">
+                    <h2 class="ui-btn-inner">Virtual Casting Room</h2>
+                </div>
+                <form data-ajax="false" id="searchFrm" name="searchFrm">                    
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                        <label for="searchField">Email</label>
+                        <input type="search" name="searchField" id="searchField" value="" placeholder="Search" required/>
+                    </div>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">                                   
+                        </div>
+                        <div class="ui-block-b" style="text-align:right;">                            
+                            <!--a data-role="button" id="searchBtn" data-inline="true" data>Search</a-->
+                            <button type="submit" id="searchBtn" data-inline="true"> Search </buton>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- /content -->
+        </div>        
+        <!--script src="phonegap.js"></script--> 
+        <div data-role="page" id="uploadPage">
+            <div data-role="header">
+                <h1>Actorama</h1>
+            </div><!-- /header -->
+            <div data-role="content"> 
+                <div class="ui-controlgroup-horizontal">
+                    <h2 class="ui-btn-inner">Virtual Casting Room</h2>
+                </div>
+                <form data-ajax="false" id="uploadFrm" name="uploadFrm"> 
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">Notes/Guidelines:</div>
+                        <div class="ui-block-b" id="searchNotes"></div>
+                    </div>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">Slides:</div>
+                        <div class="ui-block-b" id="searchSlides"></div>
+                    </div>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">                                   
+                        </div>
+                        <div class="ui-block-b" style="text-align:right;">                            
+                            <a data-role="button" id="uploadLnk" data-inline="true">Upload</a>
+                        </div>
+                    </div>
+                    <div style="display:none" id="uploadInfoContainer">                    
+                        <div data-role="fieldcontain" class="ui-hide-label">
+                            <label for="emailField">Email</label>
+                            <input type="email" name="emailField" id="emailField" value="" placeholder="Email" required/>
+                        </div>
+                        <div data-role="fieldcontain" class="ui-hide-label">
+                            <label for="phoneField">Telephone</label>
+                            <input type="tel" name="phoneField" id="phoneField" value="" placeholder="TelePhone" required/>
+                        </div>
+                        <div data-role="fieldcontain">
+                            <label for="browseBtn">Upload audition video</label>
+                            <a href="#" data-role="button" name="browseBtn" id="browseBtn" data-inline="true">Browse</a>
+                        </div>
+                        <div>
+                            <span>(Video format .mp4,.3gp and .mov) upload file from your computer</span>
+                        </div>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">                                   
+                            </div>
+                            <div class="ui-block-b" style="text-align:right;">                            
+                                <button type="submit" id="uploadBtn" data-inline="true">Upload</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div><!-- /content -->
+        </div>
+        <div data-role="page" id="sucessPage">
+            <div data-role="header">
+                <h1>Actorama</h1>
+            </div><!-- /header -->
+            <div data-role="content"> 
+                <div class="ui-controlgroup-horizontal">
+                    <h2 class="ui-btn-inner">Uploaded Sucessfully.</h2>
+                </div>
+                
+            </div><!-- /content -->
+        </div>
+        <script type="text/javascript" src="js/index.js"></script>               
+    </body>
+</html>

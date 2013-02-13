@@ -17,26 +17,79 @@
  * under the License.
  */
 var app = {
-    initialize: function() {
-        this.bind();
+    init: function() {        
+        console.log("Inside initialize function");
+        
+        $("#loginFrm").submit(this.validateUserInfo);
+        //$(document).on("#searchFrm", "submit", this.getSearchDetails);
+        //$("#searchFrm").submit(this.getSearchDetails);
+        $("#searchFrm").on('submit', this.getSearchDetails);
+        $("#uploadLnk").click(function(){
+            $("#uploadInfoContainer").show();
+            $(this).hide();
+        });
+        $("#uploadFrm").submit(this.uploadFile);
+      
     },
-    bind: function() {
-        document.addEventListener('deviceready', this.deviceready, false);
-    },
-    deviceready: function() {
-        // This is an event handler function, which means the scope is the event.
-        // So, we must explicitly called `app.report()` instead of `this.report()`.
-        app.report('deviceready');
-    },
-    report: function(id) {
-        // Report the event in the console
-        console.log("Report: " + id);
+    
+    validateUserInfo: function(e) {
+        
+            console.log("Inside validateInfo");
+            
+            var emailVal = $('#emailField').val();
+            var passwordVal = $('#passwordField').val();
 
-        // Toggle the state from "pending" to "complete" for the reported ID.
-        // Accomplished by adding .hide to the pending element and removing
-        // .hide from the complete element.
-        document.querySelector('#' + id + ' .pending').className += ' hide';
-        var completeElem = document.querySelector('#' + id + ' .complete');
-        completeElem.className = completeElem.className.split('hide').join('');
+            
+            $.getJSON("http://elicitdesignzsolutions.com/actorama_json/actorama_login.php?callback=", 
+                {
+                    email: emailVal,
+                    password: passwordVal
+                }, 
+                function(data){
+                
+                if(data.result == "Successfully logged in") {
+                    //TODO ask engineer to send the loginValue
+                    //localStorage.setItem('login', emailVal);
+                   $.mobile.changePage(("search.html"), {transition: "slide"}); 
+                }
+
+                if(data.result == "Invalid Login" || data.result == "Data missing") {
+                    $.mobile.showPageLoadingMsg( $.mobile.pageLoadErrorMessageTheme, "Invalid UserName or password", true );
+                    setTimeout( $.mobile.hidePageLoadingMsg, 2500 );                    
+                }
+                
+            });
+
+        return false;            
+    },
+
+    getSearchDetails: function(){
+        
+        //Getting the search input field value
+        var searchFieldVal = $("#searchField").val();
+    
+        $.getJSON("http://elicitdesignzsolutions.com/actorama_json/virtual_casting.php?title="+searchFieldVal, function(data){
+                
+                /*if(data.result[0] == "data not found") {
+                   $.mobile.showPageLoadingMsg( $.mobile.pageLoadErrorMessageTheme, "No Results Found", true );
+                    setTimeout( $.mobile.hidePageLoadingMsg, 2500 );                    
+                } else {*/
+                    //alert("Response recieved");
+                    $("#searchNotes").text(data.notes_guide);
+                    $("#searchSlides").text(data.slides);                    
+                    $.mobile.changePage("#uploadPage", {transition : "slide"});                    
+                /*}*/                
+            });
+        return false
+        },
+    uploadFile: function(){        
+        var emailVal = $("#emailField").val();
+        var passwordVal = $("#passwordField").val();
+
     }
-};
+
+    };
+
+$(document).on('pageinit', function(){        
+        app.init();
+});

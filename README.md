@@ -1,6 +1,6 @@
-# Hello World PhoneGap Application
+# Actorama PhoneGap Application
 
-> A Hello World application built with PhoneGap
+> A simple application built with PhoneGap
 
 ## PhoneGap Build
 
